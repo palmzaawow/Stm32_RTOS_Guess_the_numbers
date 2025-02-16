@@ -1,0 +1,386 @@
+{
+    "_allocate_inputs": 4,
+    "_allocate_outputs": 4,
+    "cli_parameters": "generate --target stm32f7 --name network -m C:/Users/DELL/OneDrive - KMITL/Desktop/RTOS/quantized_model.tflite --compression none --verbosity 1 --workspace C:/Users/DELL/AppData/Local/Temp/mxAI_workspace1092744813692001797305668681805436 --output C:/Users/DELL/.stm32cubemx/network_output",
+    "cli_version": {
+        "extra": "20049",
+        "major": 2,
+        "micro": 0,
+        "minor": 0
+    },
+    "cli_version_str": "2.0.0-20049",
+    "code_size": 0,
+    "compression": [],
+    "date_time": "2025-02-16T20:47:38+0700",
+    "error": 0,
+    "error_str": [],
+    "exec_cmd": "generate",
+    "exec_duration": 0.0,
+    "hash": "0xe607a6aa54972e45a0ba1248a83cdacb",
+    "inputs": [
+        "serving_default_input_layer0"
+    ],
+    "layers": [
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 0,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 784,
+                    "fmt": {
+                        "format": "s8"
+                    },
+                    "shape": [
+                        28,
+                        1,
+                        28
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 0,
+            "inputs": [],
+            "name": "serving_default_input_layer0",
+            "original": "",
+            "type": "Input"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 115208,
+                "n_params": 208,
+                "psize": 232,
+                "rom_output": {
+                    "c_size": 1152,
+                    "fmt": {
+                        "format": "s8"
+                    },
+                    "shape": [
+                        12,
+                        8,
+                        12
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 0,
+            "inputs": [
+                "serving_default_input_layer0"
+            ],
+            "name": "conv2d_0",
+            "original": "CONV_2D",
+            "type": "Conv2D"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 4608,
+                "n_params": 0,
+                "psize": 0,
+                "rom_size": 0
+            },
+            "id": 0,
+            "inputs": [
+                "conv2d_0"
+            ],
+            "name": "nl_0_nl",
+            "original": "CONV_2D",
+            "type": "Nonlinearity"
+        },
+        {
+            "c_id": [
+                0
+            ],
+            "extras": {
+                "n_macc": 4608,
+                "n_params": 0,
+                "psize": 0,
+                "rom_size": 232
+            },
+            "id": 1,
+            "inputs": [
+                "nl_0_nl"
+            ],
+            "name": "pool_1",
+            "original": "MAX_POOL_2D",
+            "type": "Pool"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 204816,
+                "n_params": 3216,
+                "psize": 3264,
+                "rom_output": {
+                    "c_size": 256,
+                    "fmt": {
+                        "format": "s8"
+                    },
+                    "shape": [
+                        4,
+                        16,
+                        4
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 2,
+            "inputs": [
+                "pool_1"
+            ],
+            "name": "conv2d_2",
+            "original": "CONV_2D",
+            "type": "Conv2D"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 1024,
+                "n_params": 0,
+                "psize": 0,
+                "rom_size": 0
+            },
+            "id": 2,
+            "inputs": [
+                "conv2d_2"
+            ],
+            "name": "nl_2_nl",
+            "original": "CONV_2D",
+            "type": "Nonlinearity"
+        },
+        {
+            "c_id": [
+                1
+            ],
+            "extras": {
+                "n_macc": 1024,
+                "n_params": 0,
+                "psize": 0,
+                "rom_size": 3264
+            },
+            "id": 3,
+            "inputs": [
+                "nl_2_nl"
+            ],
+            "name": "pool_3",
+            "original": "MAX_POOL_2D",
+            "type": "Pool"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 0,
+                "n_params": 0,
+                "psize": 0,
+                "rom_size": 0
+            },
+            "id": 4,
+            "inputs": [
+                "pool_3"
+            ],
+            "name": "reshape_4",
+            "original": "RESHAPE",
+            "type": "Reshape"
+        },
+        {
+            "c_id": [
+                2
+            ],
+            "extras": {
+                "n_macc": 0,
+                "n_params": 32768,
+                "psize": 32768,
+                "rom_size": 33280
+            },
+            "id": 5,
+            "inputs": [],
+            "name": "tfl_pseudo_qconst3",
+            "original": "",
+            "type": "Placeholder"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 0,
+                "n_params": 128,
+                "psize": 512,
+                "rom_size": 0
+            },
+            "id": 5,
+            "inputs": [],
+            "name": "tfl_pseudo_qconst2",
+            "original": "",
+            "type": "Placeholder"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 32896,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 128,
+                    "fmt": {
+                        "format": "s8"
+                    },
+                    "shape": [
+                        128
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 5,
+            "inputs": [
+                "reshape_4",
+                "tfl_pseudo_qconst3",
+                "tfl_pseudo_qconst2"
+            ],
+            "name": "gemm_5",
+            "original": "FULLY_CONNECTED",
+            "type": "Gemm"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 128,
+                "n_params": 0,
+                "psize": 0,
+                "rom_size": 0
+            },
+            "id": 5,
+            "inputs": [
+                "gemm_5"
+            ],
+            "name": "nl_5_nl",
+            "original": "FULLY_CONNECTED",
+            "type": "Nonlinearity"
+        },
+        {
+            "c_id": [
+                3
+            ],
+            "extras": {
+                "n_macc": 0,
+                "n_params": 1280,
+                "psize": 1280,
+                "rom_size": 1320
+            },
+            "id": 6,
+            "inputs": [],
+            "name": "tfl_pseudo_qconst1",
+            "original": "",
+            "type": "Placeholder"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 0,
+                "n_params": 10,
+                "psize": 40,
+                "rom_size": 0
+            },
+            "id": 6,
+            "inputs": [],
+            "name": "tfl_pseudo_qconst",
+            "original": "",
+            "type": "Placeholder"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 1290,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 10,
+                    "fmt": {
+                        "format": "s8"
+                    },
+                    "shape": [
+                        10
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 6,
+            "inputs": [
+                "nl_5_nl",
+                "tfl_pseudo_qconst1",
+                "tfl_pseudo_qconst"
+            ],
+            "name": "gemm_6",
+            "original": "FULLY_CONNECTED",
+            "type": "Gemm"
+        },
+        {
+            "c_id": [
+                4
+            ],
+            "extras": {
+                "n_macc": 150,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 10,
+                    "fmt": {
+                        "format": "s8"
+                    },
+                    "shape": [
+                        10
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 7,
+            "inputs": [
+                "gemm_6"
+            ],
+            "name": "nl_7",
+            "original": "SOFTMAX",
+            "type": "Nonlinearity"
+        }
+    ],
+    "model_files": [
+        "C:\\Users\\DELL\\OneDrive - KMITL\\Desktop\\RTOS\\quantized_model.tflite"
+    ],
+    "model_n_params": 37610,
+    "model_name": "quantized_model",
+    "model_size": 38096,
+    "model_type": "tflite",
+    "name": "network",
+    "outputs": [
+        "nl_7"
+    ],
+    "ram_io_size": [
+        0,
+        0
+    ],
+    "ram_size": 7616,
+    "report_version": 1.1,
+    "rom_cfact": 1.0,
+    "rom_heap_inspector": 2048,
+    "rom_inputs": [
+        {
+            "c_size": 784,
+            "c_type": "s8",
+            "name": "serving_default_input_layer0"
+        }
+    ],
+    "rom_n_macc": 359992,
+    "rom_outputs": [
+        {
+            "c_size": 10,
+            "c_type": "s8",
+            "name": "nl_7"
+        }
+    ],
+    "rom_size": 38096,
+    "strategy": "",
+    "tools_api_version": "2.0.0-20049",
+    "tools_version": "2.0.0-20049",
+    "val_error": -1.0,
+    "val_error_desc": "None (None) #-1",
+    "val_metrics": []
+}

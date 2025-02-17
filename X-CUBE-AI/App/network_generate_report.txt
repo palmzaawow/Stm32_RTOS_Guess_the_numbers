@@ -1,6 +1,6 @@
 ST Edge AI Core v2.0.0-20049
-Created date          : 2025-02-17 22:03:34
-Parameters            : generate --target stm32f7 --name network -m C:/Users/DELL/OneDrive - KMITL/Desktop/RTOS/quantized_model.tflite --compression none --verbosity 1 --workspace C:/Users/DELL/AppData/Local/Temp/mxAI_workspace2002376162238001415650343237229504 --output C:/Users/DELL/.stm32cubemx/network_output
+Created date          : 2025-02-17 22:41:31
+Parameters            : generate --target stm32f7 --name network -m C:/Users/DELL/OneDrive - KMITL/Desktop/RTOS/quantized_model.tflite --compression none --verbosity 1 --workspace C:/Users/DELL/AppData/Local/Temp/mxAI_workspace2025124236858003527544871522959093 --output C:/Users/DELL/.stm32cubemx/network_output
 
 Exec/report summary (generate)
 -------------------------------------------------------------------------------------------------------------------------------
@@ -11,7 +11,7 @@ compression        :   none
 options            :   allocate-inputs, allocate-outputs                                                                       
 optimization       :   balanced                                                                                                
 target/series      :   stm32f7                                                                                                 
-workspace dir      :   C:\Users\DELL\AppData\Local\Temp\mxAI_workspace2002376162238001415650343237229504                       
+workspace dir      :   C:\Users\DELL\AppData\Local\Temp\mxAI_workspace2025124236858003527544871522959093                       
 output dir         :   C:\Users\DELL\.stm32cubemx\network_output                                                               
 model_fmt          :   ss/sa per channel                                                                                       
 model_name         :   quantized_model                                                                                         

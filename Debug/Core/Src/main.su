@@ -16,4 +16,4 @@
 ../Core/Src/main.c:766:6:Task03logic	64	static
 ../Core/Src/main.c:839:6:Task04display	72	static
 ../Core/Src/main.c:884:6:Task05song	32	static
-../Core/Src/main.c:927:6:Error_Handler	4	static,ignoring_inline_asm
+../Core/Src/main.c:929:6:Error_Handler	4	static,ignoring_inline_asm

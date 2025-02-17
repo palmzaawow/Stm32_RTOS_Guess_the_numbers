@@ -490,7 +490,7 @@ static void MX_TIM4_Init(void)
   TIM_MasterConfigTypeDef sMasterConfig = {0};
 
   /* USER CODE BEGIN TIM4_Init 1 */
-
+  // top 1223 bot 1
   /* USER CODE END TIM4_Init 1 */
   htim4.Instance = TIM4;
   htim4.Init.Prescaler = 1223;
@@ -791,7 +791,7 @@ void Task03logic(void *argument)
 							 sprintf((char*)messageDis, "Correct!");
 							 xQueueSend(xQueue_Display, &messageDis, portMAX_DELAY);
 
-							 song = 0;
+							 song = 3;
 							 sprintf(messageSound, "%d", song);
 							 xQueueSend(xQueue_SoundCommand, &messageSound, portMAX_DELAY);
 
@@ -906,8 +906,10 @@ void Task05song(void *argument)
 								PlayWav();
 								HAL_UART_Receive_IT(&huart3, (uint8_t*)image_buffer, 28 * 28);
 							 }
-							 else {
+							 else if (number_song == 3){
 
+								playsong = 3;
+								PlayWav();
 							    HAL_UART_Receive_IT(&huart3, (uint8_t*)image_buffer, 28 * 28);
 						     }
 

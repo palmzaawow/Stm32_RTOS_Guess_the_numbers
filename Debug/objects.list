@@ -1,5 +1,6 @@
 "./Core/Src/freertos.o"
 "./Core/Src/main.o"
+"./Core/Src/song3.o"
 "./Core/Src/songhigh1.o"
 "./Core/Src/songlow2.o"
 "./Core/Src/ssd1306.o"

@@ -69,6 +69,11 @@ extern unsigned char songB_speech_wav[];
 extern unsigned int songB_wav_len;
 
 
+extern unsigned char songC_speech_wav[];
+extern unsigned int songC_wav_len;
+
+
+
 extern uint32_t wav_index;
 extern uint32_t playsong ;
 
@@ -230,6 +235,24 @@ void TIM4_IRQHandler(void)
 			    	   		            wav_index = 0;
 			    	  }
 			       }
+
+			       else if (playsong == 3){
+					   if (wav_index < songC_wav_len) {
+								 HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, songC_speech_wav[wav_index]);
+								 wav_index++;
+					   }
+					   else {
+
+										HAL_TIM_Base_Stop_IT(&htim4);
+										HAL_DAC_Stop(&hdac, DAC_CHANNEL_1);
+										wav_index = 0;
+					  }
+				   }
+
+
+
+
+
 
 
 	      }

@@ -106,35 +106,35 @@ PCD_HandleTypeDef hpcd_USB_OTG_FS;
 osThreadId_t Task01inputHandle;
 const osThreadAttr_t Task01input_attributes = {
   .name = "Task01input",
-  .stack_size = 128 * 4,
+  .stack_size = 256 * 4,
   .priority = (osPriority_t) osPriorityHigh1,
 };
 /* Definitions for Task02img */
 osThreadId_t Task02imgHandle;
 const osThreadAttr_t Task02img_attributes = {
   .name = "Task02img",
-  .stack_size = 256 * 4,
+  .stack_size = 512 * 4,
   .priority = (osPriority_t) osPriorityNormal1,
 };
 /* Definitions for Task03game */
 osThreadId_t Task03gameHandle;
 const osThreadAttr_t Task03game_attributes = {
   .name = "Task03game",
-  .stack_size = 128 * 4,
+  .stack_size = 256 * 4,
   .priority = (osPriority_t) osPriorityAboveNormal2,
 };
 /* Definitions for Task04oled */
 osThreadId_t Task04oledHandle;
 const osThreadAttr_t Task04oled_attributes = {
   .name = "Task04oled",
-  .stack_size = 128 * 4,
+  .stack_size = 256 * 4,
   .priority = (osPriority_t) osPriorityLow1,
 };
 /* Definitions for Task05music */
 osThreadId_t Task05musicHandle;
 const osThreadAttr_t Task05music_attributes = {
   .name = "Task05music",
-  .stack_size = 128 * 4,
+  .stack_size = 256 * 4,
   .priority = (osPriority_t) osPriorityLow2,
 };
 /* USER CODE BEGIN PV */
@@ -786,7 +786,7 @@ void Task03logic(void *argument)
 		            		 srand(HAL_GetTick());
 		            		 random_digit = rand() % 10;
 
-		            		 game_started = 1;
+//		            		 game_started = 1; //1
 
 							 sprintf((char*)messageDis, "Correct!");
 							 xQueueSend(xQueue_Display, &messageDis, portMAX_DELAY);
@@ -794,6 +794,8 @@ void Task03logic(void *argument)
 							 song = 0;
 							 sprintf(messageSound, "%d", song);
 							 xQueueSend(xQueue_SoundCommand, &messageSound, portMAX_DELAY);
+
+							 game_started = 0; //1
 
 		            	 }
 		            	 else if (random_digit < number_player) {

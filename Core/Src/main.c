@@ -800,7 +800,7 @@ void Task03logic(void *argument)
 		            	 }
 		            	 else if (random_digit < number_player) {
 
-		            		 sprintf((char*)messageDis, "%d Greater",number_player);
+		            		 sprintf((char*)messageDis, "%d Too much",number_player);
 		            	 	 xQueueSend(xQueue_Display, &messageDis, portMAX_DELAY);
 
 
@@ -810,7 +810,7 @@ void Task03logic(void *argument)
 		            	 }
 		            	 else if (random_digit > number_player) {
 
-		            		 sprintf((char*)messageDis, "%d Lower",number_player);
+		            		 sprintf((char*)messageDis, "%d Too few",number_player);
 		            	 	 xQueueSend(xQueue_Display, &messageDis, portMAX_DELAY);
 
 		            	 	 song = 2;
@@ -842,6 +842,8 @@ void Task04display(void *argument)
 	char messageDis[20];
 	char buffer[10];
 	char result[10];
+	char start_message[20] = "Guess the";
+	char end_message[20] = "number?";
   /* Infinite loop */
   for(;;)
   {
@@ -854,18 +856,28 @@ void Task04display(void *argument)
 
 						ssd1306_Fill(Black);
 
-						ssd1306_SetCursor(5,2);
-						ssd1306_WriteString(messageDis, Font_7x10, White);
+						ssd1306_SetCursor(5,20);
+						ssd1306_WriteString(messageDis, Font_11x18, White);
 
-						ssd1306_SetCursor(5,15);
-						ssd1306_WriteString(buffer, Font_7x10, White);
-
-						ssd1306_SetCursor(5,15*2);
-						ssd1306_WriteString(result, Font_7x10, White);
+//						ssd1306_SetCursor(5,15);
+//						ssd1306_WriteString(buffer, Font_7x10, White);
+//
+//						ssd1306_SetCursor(5,15*2);
+//						ssd1306_WriteString(result, Font_7x10, White);
 
 						ssd1306_UpdateScreen();
 
 		  }
+	  }
+	  else{
+
+		  ssd1306_Fill(Black);
+		  ssd1306_SetCursor(5,15);
+		  ssd1306_WriteString(start_message, Font_11x18, White);
+		  ssd1306_SetCursor(50,32);
+		  ssd1306_WriteString(end_message, Font_11x18, White);
+		  ssd1306_UpdateScreen();
+
 	  }
 
 	  HAL_UART_Transmit(&huart3, "4", 1, HAL_MAX_DELAY);

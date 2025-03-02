@@ -15,5 +15,5 @@
 ../Core/Src/main.c:727:6:Task02image	2
 ../Core/Src/main.c:766:6:Task03logic	6
 ../Core/Src/main.c:839:6:Task04display	3
-../Core/Src/main.c:884:6:Task05song	6
-../Core/Src/main.c:929:6:Error_Handler	1
+../Core/Src/main.c:896:6:Task05song	6
+../Core/Src/main.c:941:6:Error_Handler	1
